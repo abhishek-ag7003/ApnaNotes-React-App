@@ -83,5 +83,32 @@ try {
     console.log(error);
         res.status(500).send("Internal server error");
 }
+});
+
+// Route 4 : create an api to delete existing note by given id using DELETE "/api/notes/delete-note/:id"
+
+router.delete("/delete-note/:id", fetchUser, async(req,res)=>{
+    try {
+        const id = req.params.id;
+
+        //Find the user note by id passed in the parameter of the request
+        const userNoteById = await Notes.findById(id);
+        if(!userNoteById){
+            return res.status(404).send("Not found")
+        }
+
+        // Check and allowed user to delete if the users owns that note
+        // User can't delete others note
+        if(userNoteById.user.toString() !== req.user.id){
+            return res.status(401).send("Unauthorized user")
+        }
+
+        // If user matched by id allow him to delete the note
+        let notes = await Notes.findByIdAndDelete(id)
+        res.json({"msg":"Note Deleted","notes":notes})
+    } catch (error) {
+        console.log(error);
+            res.status(500).send("Internal server error");
+    }
 })
 module.exports = router;
