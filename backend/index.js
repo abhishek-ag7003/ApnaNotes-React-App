@@ -3,6 +3,7 @@ const connectToMongo = require("./database_connection")
 connectToMongo();
 
 const express = require('express')
+var cors = require('cors')
 const app = express();
 const port = 5000;
 
@@ -10,6 +11,8 @@ const port = 5000;
 //     res.send("Hello")
 // })
 app.use(express.json())
+app.use(cors())
+
 
 //Available routes
 app.use("/api/auth", require("./routes/auth"))
