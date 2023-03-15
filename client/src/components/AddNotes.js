@@ -6,9 +6,10 @@ const AddNotes = () => {
     const context = useContext(noteContext)
     const {addNote} = context;
     const [notes, setNotes] = useState({title:"", description:"", tag:""})
-    const handleSubmit = (e)=>{
+    const handleSubmit = async(e)=>{
       e.preventDefault();
-      addNote(notes.title,notes.description,notes.tag)
+      await addNote(notes.title,notes.description,notes.tag)
+      setNotes({title:"", description:"", tag:""})
     }
     const handleOnChange =(e)=>{
       setNotes({...notes, [e.target.name]:e.target.value})
@@ -25,6 +26,7 @@ const AddNotes = () => {
               className="form-control"
               id="title"
               name="title"
+              value={notes.title}
               aria-describedby="emailHelp"
               placeholder="Enter Title"
               onChange={handleOnChange}
@@ -38,22 +40,28 @@ const AddNotes = () => {
               className="form-control"
               id="description"
               name="description"
+              value={notes.description}
+
               placeholder="Type Something....."
               onChange={handleOnChange}
 
             />
           </div>
-          <div className="form-check my-3">
+          
+          <div className="form-group my-3">
+            <label htmlFor="tag" className="my-2">Tag</label>
             <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
+              type="text"
+              className="form-control"
+              id="tag"
+              name="tag"
+              value={notes.tag}
+              placeholder="Type Something....."
               onChange={handleOnChange}
+
             />
-            <label className="form-check-label " htmlFor="exampleCheck1">
-              Check me out
-            </label>
           </div>
+
           <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
             Submit
           </button>

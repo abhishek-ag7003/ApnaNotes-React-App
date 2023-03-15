@@ -20,8 +20,9 @@ router.post(
   async (req, res) => {
     //If there are any error , it returns Bad Request (400) with error msg
     const errors = validationResult(req);
+    let success=false;
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({success, errors: errors.array() });
     }
     // check whether the user with the same email is already exist
     try {
@@ -29,7 +30,7 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ error: "User with same email id already exist" });
+          .json({success, error: "User with same email id already exist" });
       }
 
       const salt = await bcrypt.genSalt(10);
@@ -49,8 +50,8 @@ router.post(
 
       // generating jwt token for authorization
       const authToken = jwt.sign(data, JWT_SECRET);
-
-      res.json({ "auth token": authToken });
+      success = true;
+      res.json({success, "auth_token": authToken });
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Some error occured");
@@ -67,9 +68,10 @@ router.post(
     body("password", "Password cannot be blank").exists(),
   ],
   async (req, res) => {
+    let success = false;
     const error = validationResult(req);
     if (!error.isEmpty()) {
-      return res.status(400).json({ error: error.array() });
+      return res.status(400).json({success, error: error.array() });
     }
 
     const { email, password } = req.body;
@@ -78,14 +80,14 @@ router.post(
       if (!user) {
         return res
           .status(400)
-          .json({ error: "Please try to login with correct credentials" });
+          .json({ success, error: "Please try to login with correct credentials" });
       }
 
       const passwordCompare = await bcrypt.compare(password, user.password);
       if (!passwordCompare) {
         return res
           .status(400)
-          .json({ error: "Please try to login with correct credentials" });
+          .json({success, error: "Please try to login with correct credentials" });
       }
 
       const payload = {
@@ -95,8 +97,8 @@ router.post(
       };
       // generating jwt token for authorization
       const authToken = jwt.sign(payload, JWT_SECRET);
-
-      res.json({ "auth token": authToken });
+      success = true;
+      res.json({success, "auth_token": authToken });
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Some error occured");
@@ -106,13 +108,15 @@ router.post(
 
 // Route 3 : Get logged in user detail using Post  "/api/auth/getUseDetail" -  login required
 router.post("/get-user-detail", fetchUser, async (req, res) => {
+  let success = false;
   try {
     const userId = req.user.id;
     const user = await User.findById(userId).select("-password");
-    res.send(user);
+    success = user ? true:false;
+    res.send(success,user);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("Some error occured");
+    res.status(500).send({success,error:"Some error occured"});
   }
 });
 module.exports = router;

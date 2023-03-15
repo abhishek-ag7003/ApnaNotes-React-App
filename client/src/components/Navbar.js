@@ -39,6 +39,11 @@ function Navbar() {
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button className="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <form className="d-flex" >
+      <Link to="/login" className="btn btn-primary mx-2 "  aria-disabled="true">Login</Link>
+      <Link to="/signup" className="btn btn-primary "  aria-disabled="true">Sign Up</Link>
+
+      </form>
     </div>
   </div>
 </nav>

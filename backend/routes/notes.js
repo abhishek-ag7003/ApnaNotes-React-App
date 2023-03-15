@@ -16,8 +16,8 @@ router.get("/fetch-all-notes", fetchUser, async (req, res) => {
   }
 });
 
-// Route 2 : Add a new notes using Post "/api/notes/addNotes" -- login required
 
+// Route 2 : Add a new notes using Post "/api/notes/addNotes" -- login required
 router.post(
   "/add-note",
   fetchUser,
