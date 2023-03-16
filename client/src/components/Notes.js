@@ -1,10 +1,13 @@
 import React from 'react'
 import { useContext, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import noteContext from  "../context/Notes/NoteContext"
 import AddNotes from './AddNotes';
 import NoteItem from './NoteItem';
 
-function Notes() {
+function Notes(props) {
+  const navigate = useNavigate();
+  const {showAlert} = props;
   const [noteState, setNoteState] = useState({title:"", description:"", tag:""})
     const context = useContext(noteContext)
     const {notes, fetchNotes, editNote} = context;
@@ -12,7 +15,12 @@ function Notes() {
     const refClose = useRef(null)
     useEffect(() => {
       console.log("stared mounted");
-      fetchNotes();
+      if(localStorage.getItem('token')){
+        fetchNotes();
+      }
+      else{
+        navigate("/authentication")
+      }
       console.log("Done mounted");
       // eslint-disable-next-line
     },[]);
@@ -21,6 +29,9 @@ function Notes() {
       console.log("click")
       setNoteState(currentNote)
       console.log(noteState)
+      // props.showAlert("Notes updated successfully","danger")
+
+
     }
 
     const handleSubmit = async (e)=>{
@@ -28,6 +39,7 @@ function Notes() {
       await editNote(noteState._id,noteState.title,noteState.description,noteState.tag)
       refClose.current.click();
       fetchNotes();
+
     }
     const handleOnChange =(e)=>{
       setNoteState({...noteState, [e.target.name]:e.target.value})
@@ -35,7 +47,7 @@ function Notes() {
 
   return (
     <>
-    <AddNotes/>
+    <AddNotes showAlert={showAlert} />
 
 <button type="button" className="btn btn-primary d-none" ref={ref} data-bs-toggle="modal" data-bs-target="#exampleModal">
   Launch demo modal
@@ -108,7 +120,7 @@ function Notes() {
    { notes.length !==0 && <div className='row my-3'>
       <h2>Your Notes</h2>
         {notes.map((notes)=>{
-          return <NoteItem key={notes._id} updateNote={updateNote} notes={notes}/>
+          return <NoteItem  key={notes._id} updateNote={updateNote} notes={notes}/>
         })}
     </div>}
     </>

@@ -6,6 +6,7 @@ export default function NoteItem(props) {
     const { deleteNote} = context;
   const handleDelete = ()=>{
     deleteNote(notes._id)
+
   }
  
   return (
