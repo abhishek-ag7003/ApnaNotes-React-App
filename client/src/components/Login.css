@@ -1,12 +1,17 @@
 
-.card-wrapper{
+.cardWrapper{
     background:linear-gradient(90deg, rgba(21,95,204,1) 0%, rgba(13,110,253,1) 47%, rgba(156,198,237,1) 100%);
     width:100%;
-    height:60vh;
-    margin-top: 8%;
+    height:70vh;
+    margin-top: 3%;
     border-radius:10px;
     padding: 5%;
     
       
 };
+
+.rightBox{
+    width: 10%;
+}
+
 

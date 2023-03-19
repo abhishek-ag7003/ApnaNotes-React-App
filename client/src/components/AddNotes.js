@@ -57,10 +57,12 @@ function showNotification() {
   };
   return (
     <div>
-      <div className="container my-3">
-        <h1>Add Notes</h1>
-        <form>
-          <div className="form-group my-3">
+      <div className="container">
+      <div className="d-flex flex-column align-items-center">
+        <h3 className="">Add Notes</h3>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
             <label htmlFor="title" className="my-2">
               Title
             </label>
@@ -71,6 +73,8 @@ function showNotification() {
               name="title"
               value={notes.title}
               aria-describedby="emailHelp"
+              minLength={1}
+            
               placeholder="Enter Title"
               onChange={handleOnChange}
             />
@@ -87,6 +91,10 @@ function showNotification() {
               value={notes.description}
               placeholder="Type Something....."
               onChange={handleOnChange}
+              style={{height:"10vh"}}
+              minLength={1}
+
+
             />
           </div>
 
@@ -104,14 +112,14 @@ function showNotification() {
               onChange={handleOnChange}
             />
           </div>
-
+          <div className="container my-4 d-flex flex-row justify-content-center">
           <button
             type="submit"
-            className="btn btn-primary"
-            onClick={handleSubmit}
+            className="btn btn-primary px-5"
           >
             Submit
           </button>
+          </div>
         </form>
       </div>
     </div>
