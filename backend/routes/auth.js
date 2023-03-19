@@ -7,6 +7,10 @@ var jwt = require("jsonwebtoken");
 var fetchUser = require("../middleware/fetchUser");
 const JWT_SECRET = "thisIsSecretKey";
 
+router.get("/test",(req,res)=>{
+  res.send("Hello! server is working")
+})
+
 //Route 1 : Create a user using POST "api/auth/user" -- (Doesn't require auth)
 router.post(
   "/createuser",
