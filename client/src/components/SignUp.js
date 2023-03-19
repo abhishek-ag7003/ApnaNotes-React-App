@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
-
 const SignUp = (props) => {
   let navigate = useNavigate();
 
@@ -17,17 +16,20 @@ const SignUp = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5000/api/auth/createuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: credentials.name,
-        email: credentials.email,
-        password: credentials.password,
-      }),
-    });
+    const response = await fetch(
+      "https://inotebook-note-app.onrender.com/api/auth/createuser",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: credentials.name,
+          email: credentials.email,
+          password: credentials.password,
+        }),
+      }
+    );
     const json = await response.json();
     if (json.success) {
       //redirect
@@ -103,16 +105,20 @@ const SignUp = (props) => {
     // </div>
 
     <div>
-      <div className="cardWrapper  position-relative" style={{height:"75vh"}}>
+      <div
+        className="cardWrapper  position-relative"
+        style={{ height: "75vh" }}
+      >
         <div
           className="card mt-4  whiteBox d-flex flex-row justify-content-end"
           style={{ width: "100%", height: "45vh", zIndex: "1" }}
         >
           <div className="  rightBox mx-5" style={{ width: "40%" }}>
             <div className="p-3 d-flex flex-column align-items-center">
-              <h3 className=" text-nowrap text-dark">Already have an account ?</h3>
+              <h3 className=" text-nowrap text-dark">
+                Already have an account ?
+              </h3>
               <Link to="/login" className="nav-link my-2 text-primary">
-                
                 <div className="btn btn-light">Login</div>
               </Link>
             </div>
@@ -176,7 +182,7 @@ const SignUp = (props) => {
                   placeholder="Password"
                 />
               </div>
-              
+
               <div className="d-flex justify-content-center my-4">
                 <button type="submit" className="btn btn-primary ">
                   Submit
