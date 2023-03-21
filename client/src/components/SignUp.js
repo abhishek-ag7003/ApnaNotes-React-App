@@ -106,8 +106,8 @@ const SignUp = (props) => {
 
     <div>
       <div
-        className="cardWrapper  position-relative"
-        style={{ height: "75vh" }}
+        className="cardWrapper d-flex flex-column position-relative"
+        
       >
         <div
           className="card mt-4  whiteBox d-flex flex-row justify-content-end"
@@ -115,7 +115,7 @@ const SignUp = (props) => {
         >
           <div className="  rightBox mx-5" style={{ width: "40%" }}>
             <div className="p-3 d-flex flex-column align-items-center">
-              <h3 className=" text-nowrap text-dark">
+              <h3 className=" text-nowrap text-dark" style={{textAlign:"center"}}>
                 Already have an account ?
               </h3>
               <Link to="/login" className="nav-link my-2 text-primary">
@@ -129,8 +129,8 @@ const SignUp = (props) => {
           </div>
         </div>
         <div
-          className=" card d-flex position-absolute ms-5"
-          style={{ width: "35%", zIndex: "2", top: "10%" }}
+          className=" card d-flex position-absolute"
+          style={{ width: "35%",minWidth:"320px", zIndex: "2", top: "8%" }}
           id="form-container"
         >
           <form onSubmit={handleSubmit}>
