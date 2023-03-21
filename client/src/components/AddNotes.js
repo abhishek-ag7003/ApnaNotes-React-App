@@ -41,7 +41,7 @@ function showNotification() {
       } else if (permission === "default") {
         requestAndShowPermission();
       } else {
-        // alert("Use normal alert");
+        alert("Use normal alert");
       }
     }
   };
