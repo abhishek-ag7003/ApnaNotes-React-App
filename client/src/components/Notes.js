@@ -7,7 +7,7 @@ import NoteItem from "./NoteItem";
 
 function Notes(props) {
   const navigate = useNavigate();
-  // const { showAlert } = props;
+  const { showAlert } = props;
   const [noteState, setNoteState] = useState({
     title: "",
     description: "",
@@ -32,7 +32,7 @@ function Notes(props) {
     console.log("click");
     setNoteState(currentNote);
     console.log(noteState);
-    // props.showAlert("Notes updated successfully","danger")
+    props.showAlert("Notes updated successfully","danger")
   };
 
   const handleSubmit = async (e) => {
@@ -72,7 +72,7 @@ function Notes(props) {
   return (
     <div className="position-relative ">
       <div className="container shadow-lg p-3 mb-5 bg-body-tertiary rounded" style={addNoteStyle}>
-      <AddNotes />
+      <AddNotes showAlert={showAlert}/>
       </div>
       <div className="d-flex flex-row justify-content-center mt-5" style={bgStyle}>
         {/* <div className="d-flex flex-column align-items-center">
