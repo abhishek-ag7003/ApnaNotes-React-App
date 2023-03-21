@@ -7,7 +7,7 @@ import NoteItem from "./NoteItem";
 
 function Notes(props) {
   const navigate = useNavigate();
-  const { showAlert } = props;
+  // const { showAlert } = props;
   const [noteState, setNoteState] = useState({
     title: "",
     description: "",
