@@ -59,11 +59,10 @@ function Notes(props) {
   };
   const addNoteStyle = {
     width:"90%",
-    height:"62vh",
     borderRadius:"10px",
     position:"absolute",
     zIndex:"2",
-    top:"12%",
+    top:"15%",
     left:"5%",
     background:"white"
 
@@ -73,13 +72,13 @@ function Notes(props) {
   return (
     <div className="position-relative ">
       <div className="container shadow-lg p-3 mb-5 bg-body-tertiary rounded" style={addNoteStyle}>
-      <AddNotes showAlert={showAlert} />
+      <AddNotes />
       </div>
-      <div className="d-flex flex-row justify-content-center" style={bgStyle}>
+      <div className="d-flex flex-row justify-content-center mt-5" style={bgStyle}>
         {/* <div className="d-flex flex-column align-items-center">
         <h1 className="text-light mt-3">Add Notes</h1> */}
         <div className=" d-flex flex-row justify-content-center mt-4" >
-        <h4 className=" text-light font-monospace">Organize Your Notes with iNotebook!</h4>
+        <h4 className=" text-light font-monospace" style={{textAlign:"center"}}>Organize Your Notes with iNotebook!</h4>
         {/* </div> */}
         </div>
 
@@ -185,7 +184,7 @@ function Notes(props) {
         </div>
       </div>
       {notes.length !== 0 && (
-        <div className="row" style={{ margin:" 32% 5% 0px 5%"}}>
+        <div className="row" style={{ margin:" 35% 5% 0px 5%"}}>
           <h2>Your Notes</h2>
           {notes.map((notes) => {
             return (

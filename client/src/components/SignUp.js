@@ -35,7 +35,7 @@ const SignUp = (props) => {
       //redirect
       sessionStorage.setItem("token", json.auth_token);
       navigate("/");
-      props.showAlert("Account created Successfully", "success");
+      // props.showAlert("Account created Successfully", "success");
     } else {
       props.showAlert("Invalid Credentials", "danger");
     }

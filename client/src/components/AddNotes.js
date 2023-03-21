@@ -58,6 +58,7 @@ function showNotification() {
   return (
     <div>
       <div className="container">
+        <div className="d-flex flex-column ">
       <div className="d-flex flex-column align-items-center">
         <h3 className="">Add Notes</h3>
         </div>
@@ -121,6 +122,7 @@ function showNotification() {
           </button>
           </div>
         </form>
+      </div>
       </div>
     </div>
   );
