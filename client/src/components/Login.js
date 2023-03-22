@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-import "./Login.css";
 
 const Login = (props) => {
   let navigate = useNavigate();
@@ -38,30 +37,9 @@ const Login = (props) => {
   };
 
   return (
-    <div>
-      <div className="cardWrapper  position-relative">
-        <div
-          className="card mt-4  whiteBox d-flex flex-row justify-content-end"
-          style={{ width: "100%", height: "34vh", zIndex: "1" }}
-        >
-          <div className="  rightBox mx-5" style={{ width: "40%" }}>
-            <div className="p-3 d-flex flex-column align-items-center">
-              <h3 className="text-dark">First time here ?</h3>
-              <Link to="/signup" className="nav-link text-primary my-2">
-                <div className="btn btn-light">Sign up</div>
-              </Link>
-            </div>
-            <hr className="my-2" />
-            <div className="p-3 d-flex flex-column align-items-center">
-              <div>Made with ❤️</div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="card d-flex flex-column position-absolute"
-          style={{ width: "35%", minWidth:"320px",zIndex: "2", top: "8%" }}
-          id="form-container"
-        >
+    <div className="">
+      <div className="cardWrapper d-flex position-relative ">
+        <div className="card form-wrapper d-flex flex-column">
           <form onSubmit={handleSubmit} className="">
             <div className="m-4">
               <h2>Login</h2>
@@ -104,6 +82,20 @@ const Login = (props) => {
               </div>
             </div>
           </form>
+        </div>
+        <div className="card mt-4 px-5 whiteBox d-flex flex-row align-items-center">
+          <div className="login-details d-flex flex-column">
+            <div className="p-3 d-flex flex-column align-items-center">
+              <h3 className=" text-nowrap text-dark">First time here ?</h3>
+              <Link to="/signup" className="nav-link text-primary my-2">
+                <div className="btn btn-light text-nowrap">Sign up</div>
+              </Link>
+            </div>
+            <hr className="my-2" />
+            <div className="p-3 d-flex flex-column align-items-center">
+              <div className="text-nowrap">Made with ❤️</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

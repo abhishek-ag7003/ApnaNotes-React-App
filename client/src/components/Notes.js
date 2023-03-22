@@ -184,7 +184,7 @@ function Notes(props) {
         </div>
       </div>
       {notes.length !== 0 && (
-        <div className=" row" style={{ margin:" 35% 5% 0px 5%"}}>
+        <div className="notes-container row">
           <h2>Your Notes</h2>
           {notes.map((notes) => {
             return (

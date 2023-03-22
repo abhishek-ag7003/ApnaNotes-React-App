@@ -13,6 +13,7 @@ import { useState } from "react";
 function App() {
   const [alert, setAlert] = useState(null);
 
+
   const showAlert = (message, type) => {
     setAlert({
       msg: message,
@@ -20,7 +21,7 @@ function App() {
     });
     setTimeout(() => {
       showAlert(null);
-    }, 1000);
+    }, 2000);
   };
 
   return (
@@ -35,7 +36,7 @@ function App() {
               <Route exact path="/about" element={<About />} />
               <Route exact path="/authentication" element={<Authentication /> } />
               <Route exact path="/login" element={<Login showAlert={showAlert} />} />
-              <Route exact path="/signup" element={<SignUp showAlert={showAlert} />} />
+              <Route exact path="/signup" element={<SignUp  showAlert={showAlert} />} />
             </Routes>
           </div>
         </Router>

@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Quicksand','Balsamiq Sans',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -14,4 +14,88 @@ code {
 
 .clickable{
   cursor: pointer;
+}
+ 
+ /***** Login page css *****/
+ .cardWrapper{
+  background:linear-gradient(90deg, rgba(21,95,204,1) 0%, rgba(13,110,253,1) 47%, rgba(156,198,237,1) 100%);
+  width:100%;
+  height:70vh;
+  margin-top: 3%;
+  border-radius:10px;
+  padding: 5%;  
+}
+ .whiteBox{
+  width : 100%;
+  height:30vh;
+  justify-content: end;
+}
+
+.login-details{
+  width: 40%;
+  height: 25vh;
+  justify-content: center;
+  /* align-items: center;  */
+}
+
+.form-wrapper{
+  width: 40%;
+  /* height: 30vh; */
+  min-width: 200px;
+  left: 5%;
+  top: 8%;
+  margin-right: 20px;
+  position: absolute;
+  z-index: 1;
+  
+
+  
+}
+/***** End Section *****/
+
+#signup{
+  height: 45vh;
+}
+
+.login-text{
+  white-space: nowrap;
+}
+
+@media (max-width: 800px){
+  .cardWrapper{
+    height: fit-content;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .whiteBox{
+    /* margin-top: 30rem !important; */
+    justify-content: center;
+  }
+  
+  .form-wrapper{
+    z-index: 1;
+    position: static;
+    width: 100%;
+  }
+
+  .login-details{
+    margin: 3% 0 ;
+  }
+
+}
+
+
+ /***** Notes style *****/
+
+ .notes-container{
+  margin: 25rem 2rem 2rem 2rem;
+ }
+
+/***** End notes style *****/
+
+
+@media (min-width: 801px) and (max-width: 1020px) {
+  .login-text{
+    white-space: normal;
+  }
 }

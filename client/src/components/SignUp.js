@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Login.css";
 
 const SignUp = (props) => {
   let navigate = useNavigate();
@@ -35,104 +34,16 @@ const SignUp = (props) => {
       //redirect
       sessionStorage.setItem("token", json.auth_token);
       navigate("/");
-      // props.showAlert("Account created Successfully", "success");
+      props.showAlert("Account created Successfully", "success");
     } else {
       props.showAlert("Invalid Credentials", "danger");
     }
     console.log(json);
   };
   return (
-    // <div className="container">
-    //   <form onSubmit={handleSubmit}>
-    //     <div className="form-group my-2">
-    //       <label htmlFor="name">Enter Name</label>
-    //       <input
-    //         type="text"
-    //         name="name"
-    //         className="form-control"
-    //         id="name"
-    //         value={credentials.name}
-    //         onChange={onChange}
-    //         aria-describedby="name"
-    //         placeholder="Enter name"
-    //         minLength={2}
-    //       />
-    //     </div>
-
-    //     <div className="form-group my-2">
-    //       <label htmlFor="email">Email address</label>
-    //       <input
-    //         type="email"
-    //         name="email"
-    //         className="form-control"
-    //         id="email"
-    //         value={credentials.email}
-    //         onChange={onChange}
-    //         aria-describedby="emailHelp"
-    //         placeholder="Enter email"
-    //       />
-    //     </div>
-    //     <div className="form-group my-2">
-    //       <label htmlFor="exampleInputPassword1">Password</label>
-    //       <input
-    //         type="password"
-    //         name="password"
-    //         value={credentials.password}
-    //         onChange={onChange}
-    //         className="form-control"
-    //         id="password"
-    //         placeholder="Password"
-    //         minLength={5}
-    //       />
-    //     </div>
-    //     <div className="form-group my-2">
-    //       <label htmlFor="cpassword">Confirm Password</label>
-    //       <input
-    //         type="password"
-    //         name="cpassword"
-    //         value={credentials.cpassword}
-    //         onChange={onChange}
-    //         className="form-control"
-    //         id="cpassword"
-    //         placeholder="Confirm Password"
-    //         minLength={5}
-    //       />
-    //     </div>
-    //     <button type="submit" className="btn btn-primary">
-    //       Submit
-    //     </button>
-    //   </form>
-    // </div>
-
-    <div>
-      <div
-        className="cardWrapper d-flex flex-column position-relative"
-        
-      >
-        <div
-          className="card mt-4  whiteBox d-flex flex-row justify-content-end"
-          style={{ width: "100%", height: "45vh", zIndex: "1" }}
-        >
-          <div className="  rightBox mx-5" style={{ width: "40%" }}>
-            <div className="p-3 d-flex flex-column align-items-center">
-              <h3 className=" text-nowrap text-dark" style={{textAlign:"center"}}>
-                Already have an account ?
-              </h3>
-              <Link to="/login" className="nav-link my-2 text-primary">
-                <div className="btn btn-light">Login</div>
-              </Link>
-            </div>
-            <hr className="my-2" />
-            <div className="p-3 d-flex flex-column align-items-center">
-              <div>Made with ❤️</div>
-            </div>
-          </div>
-        </div>
-        <div
-          className=" card d-flex position-absolute"
-          style={{ width: "35%",minWidth:"320px", zIndex: "2", top: "8%" }}
-          id="form-container"
-        >
+    <div className="">
+      <div className="cardWrapper d-flex position-relative ">
+        <div className="card form-wrapper d-flex flex-column">
           <form onSubmit={handleSubmit}>
             <div className="m-4">
               <h2>Sign up</h2>
@@ -190,6 +101,23 @@ const SignUp = (props) => {
               </div>
             </div>
           </form>
+        </div>
+        <div
+          className="card mt-4 px-5  whiteBox d-flex flex-row align-items-center"
+          id="signup"
+        >
+          <div className="login-details  d-flex flex-column">
+            <div className="p-3 d-flex flex-column align-items-center">
+              <h3 className=" login-text text-dark">Already have an account ?</h3>
+              <Link to="/login" className="nav-link text-primary my-2">
+                <div className="btn btn-light text-nowrap">Login</div>
+              </Link>
+            </div>
+            <hr className="my-2" />
+            <div className="p-3 d-flex flex-column align-items-center">
+              <div className="text-nowrap">Made with ❤️</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
