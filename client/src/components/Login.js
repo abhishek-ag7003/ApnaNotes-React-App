@@ -75,6 +75,11 @@ const Login = (props) => {
                   placeholder="Password"
                 />
               </div>
+              <div className="demo my-4">
+                <strong>Demo credentials : </strong>
+                <div><strong> Email : </strong> demo@gmail.com</div>
+                <div><strong> password : </strong>demo121212</div>
+              </div>
               <div className="d-flex justify-content-center my-4">
                 <button type="submit" className="btn btn-primary ">
                   Submit
@@ -86,8 +91,8 @@ const Login = (props) => {
         <div className="card mt-4 px-5 whiteBox d-flex flex-row align-items-center">
           <div className="login-details d-flex flex-column">
             <div className="p-3 d-flex flex-column align-items-center">
-              <h3 className=" text-nowrap text-dark">First time here ?</h3>
-              <Link to="/signup" className="nav-link text-primary my-2">
+              <h4 className=" text-nowrap text-dark">First time here ?</h4>
+              <Link to="/signup" className="nav-link text-primary">
                 <div className="btn btn-light text-nowrap">Sign up</div>
               </Link>
             </div>

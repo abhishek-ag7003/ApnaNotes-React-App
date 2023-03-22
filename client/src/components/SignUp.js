@@ -108,7 +108,7 @@ const SignUp = (props) => {
         >
           <div className="login-details  d-flex flex-column">
             <div className="p-3 d-flex flex-column align-items-center">
-              <h3 className=" login-text text-dark">Already have an account ?</h3>
+              <h4 className=" login-text text-dark">Already have an account ?</h4>
               <Link to="/login" className="nav-link text-primary my-2">
                 <div className="btn btn-light text-nowrap">Login</div>
               </Link>
