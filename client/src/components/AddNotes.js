@@ -40,9 +40,7 @@ function showNotification() {
         showNotification();
       } else if (permission === "default") {
         requestAndShowPermission();
-      } else {
-        alert("Use normal alert");
-      }
+      } 
     }
   };
   const handleSubmit = async (e) => {
