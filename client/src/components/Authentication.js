@@ -9,9 +9,9 @@ const Authentication = () => {
     >
       <div className=" d-flex flex-column align-items-center justify-content-center">
         <h3 className="">Authentication required</h3>
-        <p>Please login in to access the page</p>
-        <p>For Demo : Demo Credentials available at login page</p>
-        <div>
+        <div className="margin-bottom">Please login in to access the page</div>
+        <div className="demo-text margin-bottom">For Demo : Demo Credentials available at login page</div>
+        <div className="margin-bottom">
           <Link className="btn btn-secondary my-2 mx-2 px-3" to="/login">
             Login
           </Link>
@@ -19,7 +19,7 @@ const Authentication = () => {
             Sign up
           </Link>
         </div>
-        <div className="p-3 d-flex flex-column align-items-center">
+        <div className=" d-flex flex-column align-items-center">
           <div>Made with ❤️</div>
         </div>
       </div>
