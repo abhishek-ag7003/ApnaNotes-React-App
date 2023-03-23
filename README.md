@@ -1,2 +1,7 @@
 # iNotebook-React-App
-iNotebook is a web based notebook developed with modern tech stack using React as front-end, Node js and Express as back-end and MongoDB database 
+
+- Developed INotebook, a cloud-based notebook application, using ReactJS for the frontend and NodeJS for the backend.
+- Utilized the latest features of ReactJS, including functional components, React Hooks, and state management using the Context API and Redux, to create a responsive and dynamic user interface.
+- Implemented a RESTful API using NodeJS and Mongoose to interact with the MongoDB database, ensuring fast and efficient communication between the frontend and backend.
+
+

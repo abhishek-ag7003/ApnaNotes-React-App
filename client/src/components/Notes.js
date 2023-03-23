@@ -78,7 +78,7 @@ function Notes(props) {
         {/* <div className="d-flex flex-column align-items-center">
         <h1 className="text-light mt-3">Add Notes</h1> */}
         <div className=" d-flex flex-row justify-content-center mt-4" >
-        <h4 className=" text-light font-monospace" style={{textAlign:"center"}}>Organize Your Notes with iNotebook!</h4>
+        <h4 className=" text-light font-monospace" style={{textAlign:"center"}}>Organize Your Notes with ApnaNotes!</h4>
         {/* </div> */}
         </div>
 
