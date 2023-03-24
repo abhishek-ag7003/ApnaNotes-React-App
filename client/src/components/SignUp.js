@@ -13,6 +13,7 @@ const SignUp = (props) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   const handleSubmit = async (e) => {
+    props.setProgress(10);
     e.preventDefault();
 
     const response = await fetch(
@@ -29,11 +30,14 @@ const SignUp = (props) => {
         }),
       }
     );
+    props.setProgress(50);
     const json = await response.json();
+    props.setProgress(80);
     if (json.success) {
       //redirect
       sessionStorage.setItem("token", json.auth_token);
       navigate("/");
+    props.setProgress(100);
       props.showAlert("Account created Successfully", "success");
     } else {
       props.showAlert("Invalid Credentials", "danger");

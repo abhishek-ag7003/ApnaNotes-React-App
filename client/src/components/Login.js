@@ -10,6 +10,7 @@ const Login = (props) => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    props.setProgress(15);
 
     const response = await fetch(
       "https://inotebook-note-app.onrender.com/api/auth/login",
@@ -25,10 +26,12 @@ const Login = (props) => {
       }
     );
     const json = await response.json();
+    props.setProgress(60);
     if (json.success) {
       //redirect
       sessionStorage.setItem("token", json.auth_token);
       navigate("/");
+     props.setProgress(100);
       props.showAlert("Successfully Logged in", "success");
     } else {
       props.showAlert("Invalid Credentials", "danger");

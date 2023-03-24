@@ -45,8 +45,11 @@ function showNotification() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    props.setProgress(30)
     await addNote(notes.title, notes.description, notes.tag);
+    props.setProgress(60)
     setNotes({ title: "", description: "", tag: "" });
+    props.setProgress(100)
     props.showAlert("Notes Added Successfully", "success");
     handleNotification();
   };
